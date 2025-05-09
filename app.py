@@ -42,15 +42,22 @@ def convert_date(date_series):
     # 如果所有格式均未成功，则进行自动推断
     return pd.to_datetime(date_series, errors='coerce')
 
-# 设置字体路径，如果不设置，matplotlib 有时不会正确读取
+# 设置字体路径
 font_path = "/home/cyj/.local/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/SimHei.ttf"
+
+# 检查字体路径是否存在
 if os.path.exists(font_path):
-    from matplotlib import font_manager
     font_manager.fontManager.addfont(font_path)
-    matplotlib.rcParams['font.family'] = 'SimHei'
+    # 这里直接设置字体路径，而不是名称
+    matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+    matplotlib.rcParams['font.family'] = 'sans-serif'
+    print(f"Font 'SimHei' successfully loaded.")
+else:
+    print(f"Font path not found: {font_path}")
 
 # 防止负号显示为方块
 matplotlib.rcParams['axes.unicode_minus'] = False
+
 # matplotlib.rcParams['font.family'] = 'SimHei'
 # matplotlib.rcParams['axes.unicode_minus'] = False
 
