@@ -44,7 +44,7 @@ def convert_date(date_series):
 
 #设置全局属性
 config ={
-"font.family":'Microsoft Yahei',
+"font.family":'Simhei',
 }
 #更新全局属性配置
 plt.rcParams.update(config)
