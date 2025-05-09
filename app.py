@@ -519,10 +519,10 @@ if categories[selected_category]:
                     plot_label = "中证全指" if idx == "中证全指.1" else idx
                     if idx in df_weekly.columns:
                         ax.plot(df_weekly['日期'], pd.to_numeric(df_weekly[idx], errors='coerce'), label=plot_label, linestyle='--')
-            #ax.set_title("产品 vs 指数净值对比")
+            
             ax.set_title(f"{selected_product}净值曲线")
-            ax.set_xlabel("日期")
-            ax.set_ylabel("单位净值")
+            ax.set_xlabel("日期",fontname='Simhei')
+            ax.set_ylabel("单位净值",fontname='Simhei')
             fig.autofmt_xdate(rotation=45)
             ax.legend()
             st.pyplot(fig)
