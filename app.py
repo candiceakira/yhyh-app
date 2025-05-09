@@ -42,18 +42,11 @@ def convert_date(date_series):
     # 如果所有格式均未成功，则进行自动推断
     return pd.to_datetime(date_series, errors='coerce')
 
-# 设置字体路径
-font_path = "/home/cyj/.local/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/SimHei.ttf"
-
-# 检查字体路径是否存在
-if os.path.exists(font_path):
-    font_manager.fontManager.addfont(font_path)
-    # 这里直接设置字体路径，而不是名称
-    matplotlib.rcParams['font.sans-serif'] = ['SimHei']
-    matplotlib.rcParams['font.family'] = 'sans-serif'
-    print(f"Font 'SimHei' successfully loaded.")
-else:
-    print(f"Font path not found: {font_path}")
+#设置全局属性
+config ={
+"font.family":'Microsoft Yahei',
+#更新全局属性配置
+plt.rcParams.update(config)
 
 # 防止负号显示为方块
 matplotlib.rcParams['axes.unicode_minus'] = False
@@ -68,7 +61,6 @@ matplotlib.rcParams['axes.unicode_minus'] = False
 # # 重新构建字体缓存
 # fm._rebuild()
 
-# import matplotlib.pyplot as plt
 # plt.rcParams['font.sans-serif'] = ['WenQuanYi Micro Hei']
 # plt.rcParams['axes.unicode_minus'] = False
 
