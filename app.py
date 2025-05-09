@@ -42,9 +42,6 @@ def convert_date(date_series):
     # 如果所有格式均未成功，则进行自动推断
     return pd.to_datetime(date_series, errors='coerce')
 
-# 确保字体缓存被清除，以便加载新字体
-matplotlib.font_manager._rebuild()
-
 # 设置字体路径，如果不设置，matplotlib 有时不会正确读取
 font_path = "/home/cyj/.local/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/SimHei.ttf"
 if os.path.exists(font_path):
