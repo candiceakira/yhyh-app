@@ -521,8 +521,8 @@ if categories[selected_category]:
                         ax.plot(df_weekly['日期'], pd.to_numeric(df_weekly[idx], errors='coerce'), label=plot_label, linestyle='--')
             
             ax.set_title(f"{selected_product}净值曲线")
-            ax.set_xlabel("日期",fontname='Simhei')
-            ax.set_ylabel("单位净值",fontname='Simhei')
+            ax.set_xlabel("日期")
+            ax.set_ylabel("单位净值")
             fig.autofmt_xdate(rotation=45)
             ax.legend()
             st.pyplot(fig)
