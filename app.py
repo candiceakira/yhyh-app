@@ -42,13 +42,20 @@ def convert_date(date_series):
     # 如果所有格式均未成功，则进行自动推断
     return pd.to_datetime(date_series, errors='coerce')
 
-# 设置中文字体显示
-# 设置字体路径（直接引用根目录下的 SimHei.ttf）
-# font_path = os.path.join(os.path.dirname(__file__), "fonts", "SimHei.ttf")
-# plt.rcParams['font.family'] = font_path
-# plt.rcParams['axes.unicode_minus'] = False
-matplotlib.rcParams['font.family'] = 'SimHei'
+# 确保字体缓存被清除，以便加载新字体
+matplotlib.font_manager._rebuild()
+
+# 设置字体路径，如果不设置，matplotlib 有时不会正确读取
+font_path = "/home/cyj/.local/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/SimHei.ttf"
+if os.path.exists(font_path):
+    from matplotlib import font_manager
+    font_manager.fontManager.addfont(font_path)
+    matplotlib.rcParams['font.family'] = 'SimHei'
+
+# 防止负号显示为方块
 matplotlib.rcParams['axes.unicode_minus'] = False
+# matplotlib.rcParams['font.family'] = 'SimHei'
+# matplotlib.rcParams['axes.unicode_minus'] = False
 
 # # 添加字体路径
 # font_path = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
