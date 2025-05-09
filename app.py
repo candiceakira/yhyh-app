@@ -44,11 +44,11 @@ def convert_date(date_series):
 
 # 设置中文字体显示
 # 设置字体路径（直接引用根目录下的 SimHei.ttf）
-font_path = os.path.join(os.path.dirname(__file__), "fonts", "SimHei.ttf")
-plt.rcParams['font.family'] = font_path
-plt.rcParams['axes.unicode_minus'] = False
-# matplotlib.rcParams['font.family'] = 'SimHei'
-# matplotlib.rcParams['axes.unicode_minus'] = False
+# font_path = os.path.join(os.path.dirname(__file__), "fonts", "SimHei.ttf")
+# plt.rcParams['font.family'] = font_path
+# plt.rcParams['axes.unicode_minus'] = False
+matplotlib.rcParams['font.family'] = 'SimHei'
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 # # 添加字体路径
 # font_path = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
